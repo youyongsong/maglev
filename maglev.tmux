@@ -85,7 +85,7 @@ apply_theme() {
 
     # status line
     status_fg=colour253 # white
-    status_bg=colour0 # dark gray
+    status_bg=default # transparent
     tmux set -g status-style fg=$status_fg,bg=$status_bg
 
     session_fg=colour16  # black
@@ -97,15 +97,15 @@ apply_theme() {
     tmux set -g status-left-length 32 \; set -g status-left "$status_left"
 
     window_status_fg=colour8 # gray
-    window_status_bg=colour0 # dark gray
+    window_status_bg=default # transparent
     window_status_format="#I #W"
     tmux setw -g window-status-style fg=$window_status_fg,bg=$window_status_bg \; setw -g window-status-format "$window_status_format"
 
     window_status_current_fg=colour16 # black
     window_status_current_bg=colour4 # blue
-    window_status_current_format="#[fg=$window_status_bg,bg=$window_status_current_bg]$left_separator_black#[fg=$window_status_current_fg,bg=$window_status_current_bg,bold] #I $left_separator #W #[fg=$window_status_current_bg,bg=$status_bg,nobold]$left_separator_black"
+    window_status_current_format="#[fg=$window_status_current_fg,bg=$window_status_current_bg,bold] #I $left_separator #W #[fg=$window_status_current_bg,bg=$status_bg,nobold]$left_separator_black"
     tmux setw -g window-status-current-format "$window_status_current_format"
-    tmux set -g status-justify left
+    tmux set -g status-justify centre
 
     window_status_activity_fg=default
     window_status_activity_bg=default
@@ -124,13 +124,13 @@ apply_theme() {
     battery_full_fg=colour160   # red
     battery_empty_fg=colour254  # white
     battery_bg=colour160        # black
-    time_date_fg=colour8      # gray
-    time_date_bg=colour0 # dark gray
+    time_date_fg=colour8        # gray
+    time_date_bg=default        # dark gray
     whoami_fg=colour254         # white
     whoami_bg=colour160         # red
     host_fg=colour16            # black
     host_bg=colour254           # white
-    status_right="︎#[fg=$time_date_fg,nobold]$right_separator %R $right_separator %a %d %b #[fg=$host_bg]$right_separator_black#[fg=$host_fg,bg=$host_bg,bold] #{battery_icon} #{battery_percentage} $right_separator CPU #{cpu_percentage} "
+    status_right="︎#[fg=$time_date_fg,nobold]$right_separator %R $right_separator %a %d %b"
     tmux set -g status-right-length 64 \; set -g status-right "$status_right"
 
     # clock
