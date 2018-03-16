@@ -50,9 +50,9 @@ main
 
 apply_theme() {
     left_separator=''
-    left_separator_black=''
+    left_separator_black=''
     right_separator=''
-    right_separator_black=''
+    right_separator_black=''
     session_symbol=''
 
     # panes
